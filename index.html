@@ -7,26 +7,72 @@
     <title>Meditation Wall</title>
 </head>
 <body>
-    <div class="container">
-        <div class="form">
-            <div class="select-type">
-                <label for="type">select wall:</label>
-                <select name="type" id="type">
-                    <option value="color">color</option>
-                    <option value="image">image</option>
-                </select>
-            </div>
-            <div class="select-wall"></div>
+    <div class="form">
+        <div class="inner-form">
+            <section class="heading">
+                <h1>meditation wall</h1>
+            </section>
+            <section class="select-wall">
+                <div class="select-type">
+                    <label for="type">wall:</label>
+                    <select name="type" id="wall">
+                        <option value="color">color</option>
+                        <option value="image">image</option>
+                    </select>
+                </div>
                 <div class="wall-container">
                     <input type="button" value="color 1">
                     <input type="button" value="color 2">
                     <input type="button" value="color 3">
-                    <input type="button" value="color 4">
-                    <input type="button" value="custom">
+                    <input type="color" value="custom">
                 </div>
-            <div class="select-audio"></div>
-            <div class="select-time"></div>
-            <div class="select-other"></div>
+            </section>
+
+            <section class="select-time">
+                <div class="select-type">
+                    <label for="type">time:</label>
+                    <select name="type" id="audio">
+                        <option value="">5 minut</option>
+                        <option value="">10 min</option>
+                        <option value="">15 min</option>
+                        <option value="">20 min</option>
+                        <option value="">30 min</option>
+                        <option value="">40 min</option>
+                        <option value="">custom</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="select-audio">
+                <div class="select-type">
+                    <label for="type">audio:</label>
+                    <select name="type" id="audio">
+                        <option value="">none</option>
+                        <option value="">rain</option>
+                        <option value="">stream</option>
+                        <option value="">white noise</option>
+                    </select>
+                </div>
+            </section>
+            
+            <section class="select-start/end">
+                <div class="select-type">
+                    <label for="type">start/end sound:</label>
+                    <select name="type" id="audio">
+                        <option value="">none</option>
+                        <option value="">Čugpi</option>
+                        <option value="">bell</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="select-other">
+                <div class="fullscreen">
+                    <label for="">fullscreen</label>
+                    <input type="checkbox" name="" id="">
+                </div>
+            </section>
+            <button>run</button>
         </div>
     </div>
 </body>

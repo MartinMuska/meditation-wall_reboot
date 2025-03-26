@@ -52,9 +52,8 @@ select {
 }
 
 .select-wall .wall-container {
-    display: flex;
+    display: none;
     gap : 0.5rem;
-
 }
 
 .form input[type="button"] {

@@ -9,23 +9,29 @@
 <body>
     <div class="form">
         <div class="inner-form">
+            
             <section class="heading">
                 <h1>meditation wall</h1>
             </section>
+
             <section class="select-wall">
                 <div class="select-type">
                     <label for="type">wall:</label>
                     <select name="type" id="wall">
+                        <option value="color">default</option>
                         <option value="color">color</option>
                         <option value="image">image</option>
                     </select>
                 </div>
-                <div class="wall-container">
-                    <input type="button" value="color 1">
-                    <input type="button" value="color 2">
-                    <input type="button" value="color 3">
-                    <input type="color" value="custom">
+
+                <div id="color-wall" class="wall-container">
+                    <p style= "color: red;">color</p>
                 </div>
+
+                <div id="image-wall" class="wall-container">
+                    <p style= "color: rgb(13, 0, 255);">image</p>
+                </div>
+
             </section>
 
             <section class="select-time">
@@ -57,7 +63,7 @@
             
             <section class="select-start/end">
                 <div class="select-type">
-                    <label for="type">start/end sound:</label>
+                    <label for="type">start/end</label>
                     <select name="type" id="audio">
                         <option value="">none</option>
                         <option value="">Čugpi</option>
@@ -76,4 +82,7 @@
         </div>
     </div>
 </body>
+
+<script type="module" src="./scripts/main.js"></script>
+
 </html>

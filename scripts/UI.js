@@ -4,8 +4,13 @@ const renderContent = (option) => {
 
     if (option === "color") {
         colorWall.style.display = "flex";
+        imageWall.style.display = "none";
     } else if (option === "image") {
+        colorWall.style.display = "none";
         imageWall.style.display = "flex";
+    } else if (option === "default") {
+        colorWall.style.display = "none";
+        imageWall.style.display = "none";
     }
 };
 

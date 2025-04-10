@@ -1,20 +1,22 @@
-let state = 'default'
-let selectElement = document.querySelector('#wall')
-let colorWall = document.querySelector('#color-wall')
-let imageWall = document.querySelector('#image-wall')
+import { displaySettingsMap } from "./data.js";
 
+const getDisplaySettings = (state) => {
+    return displaySettingsMap[state] || displaySettingsMap.default;
+}
+ 
+const applyDisplaySettings = (settings, elements) => {
+    elements.colorWall.style.display = settings.colorDisplay;
+    elements.imageWall.style.display = settings.imageDisplay;
+}
 
-selectElement.addEventListener('change', function(event) {
-    state = event.target.value
-    if (state === 'color') {
-        colorWall.style.display = 'flex'
-        imageWall.style.display = 'none'
-    } else if (state === 'image') {
-        colorWall.style.display = 'none'
-        imageWall.style.display = 'flex'
-    } else if (state === 'default') {
-        colorWall.style.display = 'none'
-        imageWall.style.display = 'none'
-    }
-})
+const updateWallDisplay = (event) => {
+    const newState = event.target.value;
+    const settings = getDisplaySettings(newState)
+    applyDisplaySettings(settings, {colorWall, imageWall});
+}
 
+const selectElement = document.querySelector('#wall');  
+const colorWall = document.querySelector('#color-wall');  
+const imageWall = document.querySelector('#image-wall');  
+
+selectElement.addEventListener('change', updateWallDisplay);

@@ -13,3 +13,10 @@ export const timeSettingsMap = {
     "30": 30,
     "40": 40,
 }
+
+export const audioSettingsMap = {
+    none: 'none',
+    rain: 'rain',
+    stream: 'stream',
+    whiteNoise: 'white noise',
+}

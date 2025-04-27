@@ -2,8 +2,8 @@ import { displaySettingsMap } from "./data.js";
 import { timeSettingsMap } from "./data.js";
 
 // STATE FUNCTION
-const getSettings = (state, defaultValue) => {
-    return displaySettingsMap[state] || defaultValue;
+const getSettings = (state, settingsMap, defaultValue) => {
+    return settingsMap[state] || defaultValue;
 }
 
 // DISPLAY SETTINGS
@@ -14,28 +14,39 @@ const applyDisplaySettings = (settings, elements) => {
 
 const updateWallDisplay = (event) => {
     const newState = event.target.value;
-    const settings = getSettings(newState, displaySettingsMap.default)
-    applyDisplaySettings(settings, {colorWall, imageWall});
+    const settings = getSettings(newState, displaySettingsMap, displaySettingsMap.default)
+    applyDisplaySettings(settings, {colorWall, imageWall}); 
 }
 
+// selector
 const selectElement = document.querySelector('#wall');  
 const colorWall = document.querySelector('#color-wall');  
 const imageWall = document.querySelector('#image-wall');  
 
 selectElement.addEventListener('change', updateWallDisplay);
 
+  
 // TIME SETTINGS
-const applyTimeSettings = (settings) => settings;
-
-const updateWallSettigns = (event) => {
-    const newState = event.target.value;
-    const settings = getSettings(newState, 0);
-    applyTimeSettings(settings);
+const updateTimeSettings = (event, settingsMap, defaultValue) => {
+    const newState = event ? event.target.value : undefined; 
+    return getSettings(newState, settingsMap, defaultValue);
 }
 
-const selectTime = document.querySelector('time');
-selectTime.addEventListener('change', updateWallSettigns);
+// Event handler 
+const handleTimeChange = (event, settingsMap, defaultValue) => {
+    const newSelectedTime = updateTimeSettings(event, settingsMap, defaultValue);
+    console.log("New selected time:", newSelectedTime);
+}
 
-// problems:
-// state function isnt clear
-// prpoblem with settings return
+// Listeners
+const selectTime = document.querySelector('#time');
+
+window.addEventListener('load', () => {
+    const defaultTime = updateTimeSettings(null, timeSettingsMap, 5);  
+    console.log("Default selected time:", defaultTime);
+});
+
+selectTime.addEventListener('change', (event) => {
+    handleTimeChange(event, timeSettingsMap, 5);  
+});
+  
